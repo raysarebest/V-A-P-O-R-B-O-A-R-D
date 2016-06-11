@@ -14,28 +14,22 @@ class MHKeyboardViewController: UIInputViewController {
 
     override func updateViewConstraints() {
         super.updateViewConstraints()
-    
         // Add custom view sizing constraints here
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        // Perform custom UI setup here
-        self.nextKeyboardButton = UIButton(type: .System)
-    
-        self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), forState: .Normal)
-        self.nextKeyboardButton.sizeToFit()
-        self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
-    
-        self.nextKeyboardButton.addTarget(self, action: #selector(advanceToNextInputMode), forControlEvents: .TouchUpInside)
+
+        view = UINib(nibName: "K E Y B O A R D   V I E W", bundle: nil).instantiateWithOwner(self, options: nil)[0] as! UIView
         
-        self.view.addSubview(self.nextKeyboardButton)
-    
-        self.nextKeyboardButton.leftAnchor.constraintEqualToAnchor(self.view.leftAnchor).active = true
-        self.nextKeyboardButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor).active = true
+        // Perform custom UI setup here
 
         view.backgroundColor = UIColor(r: 44, g: 254, b: 236)
+        for row in view.subviews{
+            for button in row.subviews where (button as? UIButton)?.titleLabel?.text?.length == 1{
+                (button as! UIButton).addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchDown)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +54,10 @@ class MHKeyboardViewController: UIInputViewController {
         self.nextKeyboardButton.setTitleColor(textColor, forState: .Normal)
     }
 
+    @objc func pressed(key: UIButton){
+        print("Pressed \(key.titleLabel!.text!)")
+    }
+
 }
 
 
@@ -69,5 +67,13 @@ extension UIColor{
     }
     convenience init(r: CGFloat, g: CGFloat, b: CGFloat){
         self.init(r: r, g: g, b: b, a: 100)
+    }
+}
+
+extension String{
+    var length: Int{
+        get{
+            return characters.count
+        }
     }
 }

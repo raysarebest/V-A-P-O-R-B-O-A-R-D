@@ -16,6 +16,7 @@
 		4C0493E91D0BB60F0007BD2C /* V_A_P_O_R_B_O_A_R_DUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0493E81D0BB60F0007BD2C /* V_A_P_O_R_B_O_A_R_DUITests.swift */; };
 		4C0493FD1D0BB6A60007BD2C /* MHKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0493FC1D0BB6A60007BD2C /* MHKeyboardViewController.swift */; };
 		4C0494011D0BB6A60007BD2C /* K E Y B O A R D.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4C0493FA1D0BB6A60007BD2C /* K E Y B O A R D.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4C04940D1D0BC6C30007BD2C /* K E Y B O A R D   V I E W.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C04940C1D0BC6C30007BD2C /* K E Y B O A R D   V I E W.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		4C0493FA1D0BB6A60007BD2C /* K E Y B O A R D.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "K E Y B O A R D.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C0493FC1D0BB6A60007BD2C /* MHKeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHKeyboardViewController.swift; sourceTree = "<group>"; };
 		4C0493FE1D0BB6A60007BD2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C04940C1D0BC6C30007BD2C /* K E Y B O A R D   V I E W.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "K E Y B O A R D   V I E W.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				4C0493FC1D0BB6A60007BD2C /* MHKeyboardViewController.swift */,
+				4C04940C1D0BC6C30007BD2C /* K E Y B O A R D   V I E W.xib */,
 				4C0493FE1D0BB6A60007BD2C /* Info.plist */,
 			);
 			path = "K E Y B O A R D";
@@ -322,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C04940D1D0BC6C30007BD2C /* K E Y B O A R D   V I E W.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
