@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>K E Y B O A R D.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>V A P O R B O A R D.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>4C0493E31D0BB60F0007BD2C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4C0493F91D0BB6A60007BD2C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

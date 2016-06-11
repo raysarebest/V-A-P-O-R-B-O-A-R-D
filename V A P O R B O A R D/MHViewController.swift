@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MHViewController.swift
 //  V A P O R B O A R D
 //
 //  Created by Michael Hulet on 6/10/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MHViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

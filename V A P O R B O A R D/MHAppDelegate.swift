@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  MHAppDelegate.swift
 //  V A P O R B O A R D
 //
 //  Created by Michael Hulet on 6/10/16.
@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class MHAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
