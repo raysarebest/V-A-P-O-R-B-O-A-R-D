@@ -8,16 +8,17 @@
 
 import UIKit
 
-class MHKeyboardViewController: UIInputViewController {
+class MHKeyboardViewController: UIInputViewController{
 
     @IBOutlet var nextKeyboardButton: UIButton!
+    @IBOutlet var backspaceButton: UIButton!
 
-    override func updateViewConstraints() {
+    override func updateViewConstraints() -> Void{
         super.updateViewConstraints()
         // Add custom view sizing constraints here
     }
 
-    override func viewDidLoad() {
+    override func viewDidLoad() -> Void{
         super.viewDidLoad()
 
         view = UINib(nibName: "K E Y B O A R D   V I E W", bundle: nil).instantiateWithOwner(self, options: nil)[0] as! UIView
@@ -26,10 +27,14 @@ class MHKeyboardViewController: UIInputViewController {
 
         view.backgroundColor = UIColor(r: 44, g: 254, b: 236)
         for row in view.subviews{
-            for button in row.subviews where (button as? UIButton)?.titleLabel?.text?.length == 1{
-                (button as! UIButton).addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchDown)
+            for button in row.subviews{
+                let button = (button as! UIButton)
+                button.addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchDown)
+                button.addTarget(self, action: #selector(self.cleanUpPress(_:)), forControlEvents: .TouchUpInside)
+                button.addTarget(self, action: #selector(self.cleanUpPress(_:)), forControlEvents: .TouchCancel)
             }
         }
+        nextKeyboardButton.addTarget(self, action: #selector(self.advanceToNextInputMode), forControlEvents: .TouchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,19 +48,25 @@ class MHKeyboardViewController: UIInputViewController {
 
     override func textDidChange(textInput: UITextInput?) {
         // The app has just changed the document's contents, the document context has been updated.
-    
-        var textColor: UIColor
-        let proxy = self.textDocumentProxy
-        if proxy.keyboardAppearance == UIKeyboardAppearance.Dark {
-            textColor = UIColor.whiteColor()
-        } else {
-            textColor = UIColor.blackColor()
-        }
-        self.nextKeyboardButton.setTitleColor(textColor, forState: .Normal)
     }
 
-    @objc func pressed(key: UIButton){
-        print("Pressed \(key.titleLabel!.text!)")
+    @objc func pressed(key: UIButton) -> Void{
+        key.backgroundColor = UIColor(r: 216, g: 40, b: 130)
+        if key.titleLabel!.text!.length != 3{
+            textDocumentProxy.insertText(key.titleLabel!.text! == "S P A C E" ? "   " : key.titleLabel!.text!)
+        }
+        else if key == backspaceButton{
+            guard textDocumentProxy.documentContextBeforeInput?.characters.last != " " else{
+                repeat{
+                    textDocumentProxy.deleteBackward()
+                }while textDocumentProxy.documentContextBeforeInput?.characters.last == " "
+                return
+            }
+            textDocumentProxy.deleteBackward()
+        }
+    }
+    @objc func cleanUpPress(key: UIButton) -> Void{
+        key.backgroundColor = UIColor(r: 250, g: 48, b: 129)
     }
 
 }
