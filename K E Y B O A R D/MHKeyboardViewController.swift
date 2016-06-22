@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum keyCase{
+    case Capital
+    case Lower
+    case Punctuation
+}
+
 class MHKeyboardViewController: UIInputViewController{
 
     @IBOutlet var nextKeyboardButton: UIButton!
@@ -22,32 +28,53 @@ class MHKeyboardViewController: UIInputViewController{
         super.viewDidLoad()
 
         view = UINib(nibName: "K E Y B O A R D   V I E W", bundle: nil).instantiateWithOwner(self, options: nil)[0] as! UIView
-        
-        // Perform custom UI setup here
-
         view.backgroundColor = UIColor(r: 44, g: 254, b: 236)
-        for row in view.subviews{
-            for button in row.subviews{
-                let button = (button as! UIButton)
-                button.addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchDown)
-                button.addTarget(self, action: #selector(self.cleanUpPress(_:)), forControlEvents: .TouchUpInside)
-                button.addTarget(self, action: #selector(self.cleanUpPress(_:)), forControlEvents: .TouchCancel)
-            }
-        }
+        eachKey({(key: UIButton) in
+            key.layer.cornerRadius = 10
+            key.addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchDown)
+            key.addTarget(self, action: #selector(self.cleanUpPress(_:)), forControlEvents: .TouchUpInside)
+            key.addTarget(self, action: #selector(self.cleanUpPress(_:)), forControlEvents: .TouchCancel)
+            key.addObserver(self, forKeyPath: "frame", options: [], context: nil)
+        })
         nextKeyboardButton.addTarget(self, action: #selector(self.advanceToNextInputMode), forControlEvents: .TouchUpInside)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated
+    override func viewWillAppear(animated: Bool) -> Void{
+        super.viewWillAppear(animated)
+        func displayGradient(view: UIView, bottom: UIColor) -> Void{
+            view.setBackground(gradient: verticalGradient(view.frame, top: view.backgroundColor!, bottom: bottom))
+        }
+        displayGradient(view, bottom: UIColor(r: 90, g: 183, b: 160))
+        eachKey{(key: UIButton) in
+            displayGradient(key, bottom: UIColor(r: 253, g: 130, b: 159))
+        }
     }
 
-    override func textWillChange(textInput: UITextInput?) {
-        // The app is about to change the document's contents. Perform any preparation here.
+    override func viewDidLayoutSubviews() -> Void{
+        super.viewDidLayoutSubviews()
+        guard let greenGradient = view.layer.sublayers![0] as? CAGradientLayer else{
+            return
+        }
+        greenGradient.frame = view.frame
+        view.setBackground(gradient: greenGradient)
+        eachKey({(key: UIButton) in
+            guard let pinkGradient = key.layer.sublayers![0] as? CAGradientLayer else{
+                return
+            }
+            //Wow this is a weird hack thanks Apple Engineering for not keeping UIView.frame or UIView.bounds updated during size changes, or even equal at any time
+            pinkGradient.frame = CGRect(origin: key.bounds.origin, size: CGSize(width: key.bounds.width, height: key.superview!.bounds.height - 2))
+        })
     }
 
-    override func textDidChange(textInput: UITextInput?) {
-        // The app has just changed the document's contents, the document context has been updated.
+    func eachKey(closure: (key: UIButton) -> Void) -> Void{
+        for sub in view.subviews{
+            for button in sub.subviews{
+                guard let button = button as? UIButton else{
+                    continue
+                }
+                closure(key: button)
+            }
+        }
     }
 
     @objc func pressed(key: UIButton) -> Void{
@@ -69,15 +96,8 @@ class MHKeyboardViewController: UIInputViewController{
         key.backgroundColor = UIColor(r: 250, g: 48, b: 129)
     }
 
-}
-
-
-extension UIColor{
-    convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat){
-        self.init(red: r / 255, green: g / 255, blue: b / 255, alpha: a / 100)
-    }
-    convenience init(r: CGFloat, g: CGFloat, b: CGFloat){
-        self.init(r: r, g: g, b: b, a: 100)
+    @objc override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) -> Void{
+        print("Key: \(object!), Changes: \(change!)")
     }
 }
 
