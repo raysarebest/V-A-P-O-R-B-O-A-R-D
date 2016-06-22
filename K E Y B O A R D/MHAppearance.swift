@@ -67,9 +67,15 @@ extension UIColor{
 }
 
 func verticalGradient(rect: CGRect, top: UIColor, bottom: UIColor) -> CAGradientLayer{
+    return verticalGradient(rect, colors: [top, bottom])
+}
+
+func verticalGradient(rect: CGRect, colors: [UIColor]) -> CAGradientLayer{
     let gradient = CAGradientLayer()
     gradient.frame = rect
-    gradient.colors = [top.CGColor, bottom.CGColor]
+    gradient.colors = colors.map({(color: UIColor) -> CGColor in
+        return color.CGColor
+    })
     return gradient
 }
 

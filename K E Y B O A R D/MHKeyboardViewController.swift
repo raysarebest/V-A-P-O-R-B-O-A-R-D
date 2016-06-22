@@ -34,19 +34,16 @@ class MHKeyboardViewController: UIInputViewController{
             key.addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchDown)
             key.addTarget(self, action: #selector(self.cleanUpPress(_:)), forControlEvents: .TouchUpInside)
             key.addTarget(self, action: #selector(self.cleanUpPress(_:)), forControlEvents: .TouchCancel)
-            key.addObserver(self, forKeyPath: "frame", options: [], context: nil)
         })
         nextKeyboardButton.addTarget(self, action: #selector(self.advanceToNextInputMode), forControlEvents: .TouchUpInside)
     }
 
     override func viewWillAppear(animated: Bool) -> Void{
         super.viewWillAppear(animated)
-        func displayGradient(view: UIView, bottom: UIColor) -> Void{
-            view.setBackground(gradient: verticalGradient(view.frame, top: view.backgroundColor!, bottom: bottom))
-        }
-        displayGradient(view, bottom: UIColor(r: 90, g: 183, b: 160))
+        let darkGreen = UIColor(r: 90, g: 183, b: 160)
+        view.setBackground(gradient: verticalGradient(view.frame, colors: [darkGreen, view.backgroundColor!, darkGreen]))
         eachKey{(key: UIButton) in
-            displayGradient(key, bottom: UIColor(r: 253, g: 130, b: 159))
+            key.setBackground(gradient: verticalGradient(key.frame, top: key.backgroundColor!, bottom: UIColor(r: 253, g: 130, b: 159)))
         }
     }
 
@@ -78,7 +75,6 @@ class MHKeyboardViewController: UIInputViewController{
     }
 
     @objc func pressed(key: UIButton) -> Void{
-        key.backgroundColor = UIColor(r: 216, g: 40, b: 130)
         if key.titleLabel!.text!.length != 3{
             textDocumentProxy.insertText(key.titleLabel!.text! == "S P A C E" ? "   " : key.titleLabel!.text!)
         }
@@ -91,13 +87,20 @@ class MHKeyboardViewController: UIInputViewController{
             }
             textDocumentProxy.deleteBackward()
         }
-    }
-    @objc func cleanUpPress(key: UIButton) -> Void{
-        key.backgroundColor = UIColor(r: 250, g: 48, b: 129)
+        key.backgroundColor = UIColor(r: 216, g: 40, b: 130)
+        reverseGradient(key: key)
     }
 
-    @objc override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) -> Void{
-        print("Key: \(object!), Changes: \(change!)")
+    @objc func cleanUpPress(key: UIButton) -> Void{
+        key.backgroundColor = UIColor(r: 250, g: 48, b: 129)
+        reverseGradient(key: key)
+    }
+
+    func reverseGradient(key key: UIButton) -> Void{
+        guard let gradient = key.layer.sublayers?[0] as? CAGradientLayer else{
+            return
+        }
+        gradient.colors = gradient.colors?.reverse()
     }
 }
 

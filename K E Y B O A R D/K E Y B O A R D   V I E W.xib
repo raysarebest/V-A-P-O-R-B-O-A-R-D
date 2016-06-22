@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11129.15" systemVersion="16A201w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +14,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="222"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MxY-yv-Eky">
@@ -525,7 +526,7 @@
                 <constraint firstItem="Vti-6R-W4R" firstAttribute="height" secondItem="JXJ-je-nrM" secondAttribute="height" id="U2W-C2-5em"/>
                 <constraint firstAttribute="trailing" secondItem="MxY-yv-Eky" secondAttribute="trailing" id="WrZ-79-keJ"/>
                 <constraint firstItem="JXJ-je-nrM" firstAttribute="top" secondItem="Vti-6R-W4R" secondAttribute="bottom" id="al1-va-KqU"/>
-                <constraint firstItem="MxY-yv-Eky" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bMd-go-6zW"/>
+                <constraint firstItem="MxY-yv-Eky" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="bMd-go-6zW"/>
                 <constraint firstItem="JXJ-je-nrM" firstAttribute="centerX" secondItem="Vti-6R-W4R" secondAttribute="centerX" id="bYo-Iz-kwr"/>
                 <constraint firstItem="MxY-yv-Eky" firstAttribute="height" secondItem="fha-Ed-u1k" secondAttribute="height" id="f0t-UP-hDV"/>
                 <constraint firstItem="fha-Ed-u1k" firstAttribute="top" secondItem="MxY-yv-Eky" secondAttribute="bottom" id="f7g-1C-lKV"/>
@@ -542,6 +543,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="34" y="54.5"/>
         </view>
     </objects>
 </document>
