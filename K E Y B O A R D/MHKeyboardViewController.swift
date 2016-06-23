@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum keyCase{
+enum MHKeyCase{
     case Capital
     case Lower
     case Punctuation
@@ -16,8 +16,11 @@ enum keyCase{
 
 class MHKeyboardViewController: UIInputViewController{
 
-    @IBOutlet var nextKeyboardButton: UIButton!
-    @IBOutlet var backspaceButton: UIButton!
+    @IBOutlet var specialKeys: [UIButton]!
+    @IBOutlet weak var nextKeyboardButton: UIButton!
+    @IBOutlet weak var backspaceKey: UIButton!
+    @IBOutlet weak var shiftKey: UIButton!
+    @IBOutlet weak var alternateLayoutKey: UIButton!
 
     override func updateViewConstraints() -> Void{
         super.updateViewConstraints()
@@ -28,13 +31,6 @@ class MHKeyboardViewController: UIInputViewController{
         super.viewDidLoad()
 
         view = UINib(nibName: "K E Y B O A R D   V I E W", bundle: nil).instantiateWithOwner(self, options: nil)[0] as! UIView
-        view.backgroundColor = UIColor(r: 44, g: 254, b: 236)
-        eachKey({(key: UIButton) in
-            key.layer.cornerRadius = 10
-            key.addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchDown)
-            key.addTarget(self, action: #selector(self.cleanUpPress(_:)), forControlEvents: .TouchUpInside)
-            key.addTarget(self, action: #selector(self.cleanUpPress(_:)), forControlEvents: .TouchCancel)
-        })
         nextKeyboardButton.addTarget(self, action: #selector(self.advanceToNextInputMode), forControlEvents: .TouchUpInside)
     }
 
@@ -43,7 +39,12 @@ class MHKeyboardViewController: UIInputViewController{
         let darkGreen = UIColor(r: 90, g: 183, b: 160)
         view.setBackground(gradient: verticalGradient(view.frame, colors: [darkGreen, view.backgroundColor!, darkGreen]))
         eachKey{(key: UIButton) in
-            if key.titleLabel?.text == "^"{
+            key.layer.cornerRadius = 10
+            key.addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchDown)
+            key.addTarget(self, action: #selector(self.cleanUpPress(_:)), forControlEvents: .TouchUpInside)
+            key.addTarget(self, action: #selector(self.cleanUpPress(_:)), forControlEvents: .TouchCancel)
+            key.imageView?.contentMode = .ScaleAspectFit
+            if self.specialKeys.contains(key){
                 key.setBackground(gradient: verticalGradient(key.frame, colors: [UIColor(r: 183, g: 119, b: 240), UIColor(r: 123, g: 85, b: 205)]))
             }
             else{
@@ -64,7 +65,17 @@ class MHKeyboardViewController: UIInputViewController{
                 return
             }
             //Wow this is a weird hack thanks Apple Engineering for not keeping UIView.frame or UIView.bounds updated during size changes, or even equal at any time
-            pinkGradient.frame = CGRect(origin: key.bounds.origin, size: CGSize(width: key.bounds.width, height: key.superview!.bounds.height - 2))
+            let keyHeight = key.superview!.bounds.height - 2
+            pinkGradient.frame = CGRect(origin: key.bounds.origin, size: CGSize(width: key.bounds.width, height: keyHeight))
+            if key.imageView != nil{
+                guard key == self.shiftKey else{
+                    let factor = keyHeight * 0.2
+                    key.imageEdgeInsets = UIEdgeInsets(top: factor, left: 0, bottom: factor, right: 0)
+                    return
+                }
+                let factor = key.bounds.width * 0.35
+                key.imageEdgeInsets = UIEdgeInsets(top: 0, left: factor, bottom: 0, right: factor)
+            }
         })
     }
 
@@ -84,10 +95,10 @@ class MHKeyboardViewController: UIInputViewController{
     }
 
     @objc func pressed(key: UIButton) -> Void{
-        if key.titleLabel!.text!.length != 3{
-            textDocumentProxy.insertText(key.titleLabel!.text! == "S P A C E" ? "   " : key.titleLabel!.text!)
+        if key.titleLabel?.text?.length != 3 && key.imageView?.image == nil{
+            textDocumentProxy.insertText(key.titleLabel!.text! == "ＳＰＡＣＥ" ? "   " : key.titleLabel!.text!)
         }
-        else if key == backspaceButton{
+        else if key == backspaceKey{
             guard textDocumentProxy.documentContextBeforeInput?.characters.last != " " else{
                 repeat{
                     textDocumentProxy.deleteBackward()

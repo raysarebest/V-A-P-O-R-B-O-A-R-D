@@ -19,6 +19,7 @@
 		4C04940D1D0BC6C30007BD2C /* K E Y B O A R D   V I E W.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C04940C1D0BC6C30007BD2C /* K E Y B O A R D   V I E W.xib */; };
 		4C28AF461D19311900ED03F4 /* MHAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C28AF451D19311800ED03F4 /* MHAppearance.swift */; };
 		4C28AF471D19311900ED03F4 /* MHAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C28AF451D19311800ED03F4 /* MHAppearance.swift */; };
+		4C5CC5101D1BAE9F00DE5816 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C0493CF1D0BB60F0007BD2C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -332,6 +333,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C5CC5101D1BAE9F00DE5816 /* Assets.xcassets in Resources */,
 				4C04940D1D0BC6C30007BD2C /* K E Y B O A R D   V I E W.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
