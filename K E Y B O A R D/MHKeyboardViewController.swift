@@ -12,6 +12,18 @@ enum MHKeyCase{
     case Capital
     case Lower
     case Punctuation
+    var layout: [[String]]{
+        get{
+            switch self{
+                case .Capital:
+                    return [["１", "２", "３", "４", "５", "６", "７", "８", "９", "０"], ["Ｑ", "Ｗ", "Ｅ", "Ｒ", "Ｔ", "Ｙ", "Ｕ", "Ｉ", "Ｏ", "Ｐ"], ["Ａ", "Ｓ", "Ｄ", "Ｆ", "Ｇ", "Ｈ", "Ｊ", "Ｋ", "Ｌ"], ["Ｚ", "Ｘ", "Ｃ", "Ｖ", "Ｂ", "Ｎ", "Ｍ"], ["＊", "ＳＰＡＣＥ"]]
+                case .Lower:
+                    return [["１", "２", "３", "４", "５", "６", "７", "８", "９", "０"], ["ｑ", "ｗ", "ｅ", "ｒ", "ｔ", "ｙ", "ｕ", "ｉ", "ｏ", "ｐ"], ["ａ", "ｓ", "ｄ", "ｆ", "ｇ", "ｈ", "ｊ", "ｋ", "ｌ"], ["ｚ", "ｘ", "ｃ", "ｖ", "ｂ", "ｎ", "ｍ"], ["＊", "ｓｐａｃｅ"]]
+                case .Punctuation:
+                    return [["－", "／", "：", "；", "（", "）", "＄", "＆", "＠", "＂"], ["［", "］", "｛", "｝", "＃", "％", "＾", "＊", "＋", "＝"], ["＿", "＼", "｜", "～", "＜", "＞", "€", "￡", "￥"], ["．", "，", "？", "！", "＇", "｟", "｠"], ["Ａ", "ＳＰＡＣＥ"]]
+            }
+        }
+    }
 }
 
 class MHKeyboardViewController: UIInputViewController{
@@ -21,6 +33,22 @@ class MHKeyboardViewController: UIInputViewController{
     @IBOutlet weak var backspaceKey: UIButton!
     @IBOutlet weak var shiftKey: UIButton!
     @IBOutlet weak var alternateLayoutKey: UIButton!
+    var currentCase: MHKeyCase!{
+        didSet{
+            eachKey({(key: UIButton, row: Int, index: Int) in
+                var updatedIndex = index
+                if row == 3{
+                    updatedIndex = index - 1
+                }
+                else if row == 4 && index == 2{
+                    updatedIndex = 1
+                }
+                key.setTitle(self.currentCase.layout[row][updatedIndex], forState: .Normal)
+            }, filter: {(key: UIButton) -> Bool in
+                    return key.titleLabel?.text != nil
+            })
+        }
+    }
 
     override func updateViewConstraints() -> Void{
         super.updateViewConstraints()
@@ -38,7 +66,7 @@ class MHKeyboardViewController: UIInputViewController{
         super.viewWillAppear(animated)
         let darkGreen = UIColor(r: 90, g: 183, b: 160)
         view.setBackground(gradient: verticalGradient(view.frame, colors: [darkGreen, view.backgroundColor!, darkGreen]))
-        eachKey{(key: UIButton) in
+        eachKey({(key: UIButton, _, _) in
             key.layer.cornerRadius = 10
             key.addTarget(self, action: #selector(self.pressed(_:)), forControlEvents: .TouchDown)
             key.addTarget(self, action: #selector(self.cleanUpPress(_:)), forControlEvents: .TouchUpInside)
@@ -50,7 +78,7 @@ class MHKeyboardViewController: UIInputViewController{
             else{
                 key.setBackground(gradient: verticalGradient(key.frame, top: UIColor(r: 253, g: 130, b: 159), bottom: key.backgroundColor!))
             }
-        }
+        })
     }
 
     override func viewDidLayoutSubviews() -> Void{
@@ -60,7 +88,7 @@ class MHKeyboardViewController: UIInputViewController{
         }
         greenGradient.frame = view.frame
         view.setBackground(gradient: greenGradient)
-        eachKey({(key: UIButton) in
+        eachKey({(key: UIButton, _, _) in
             guard let pinkGradient = key.layer.sublayers![0] as? CAGradientLayer else{
                 return
             }
@@ -77,19 +105,25 @@ class MHKeyboardViewController: UIInputViewController{
                 key.imageEdgeInsets = UIEdgeInsets(top: 0, left: factor, bottom: 0, right: factor)
             }
         })
+        self.currentCase = .Lower
     }
 
-    func eachKey(closure: (key: UIButton) -> Void) -> Void{
-        func iterateKeys(row row: UIView) -> Void{
-            guard let button = row as? UIButton else{
-                for sub in row.subviews{
-                    iterateKeys(row: sub)
+    func eachKey(closure: (key: UIButton, row: Int, index: Int) -> Void, filter: (key: UIButton) -> Bool = {(_) in return true}) -> Void{
+        var applicableKeys: [UIButton] = []
+        for row in view.subviews{
+            for current in row.subviews{
+                guard let button = current as? UIButton else{
+                    //Go deeper if I ever add extra layers
+                    continue
                 }
-                return
+                if filter(key: button){
+                    applicableKeys.append(button)
+                }
             }
-            closure(key: button)
         }
-        iterateKeys(row: view)
+        for key in applicableKeys{
+            closure(key: key, row: key.tag / 10, index: key.tag % 10)
+        }
     }
 
     @objc func pressed(key: UIButton) -> Void{
