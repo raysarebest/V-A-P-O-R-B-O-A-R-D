@@ -59,7 +59,10 @@ class MHKeyboardViewController: UIInputViewController{
                 else if keyPosition.row == 4 && keyPosition.index == 2{
                     updatedIndex = 1
                 }
-                key.setTitle(self.currentCase.layout[keyPosition.row][updatedIndex], forState: .Normal)
+                UIView.performWithoutAnimation({ 
+                    key.setTitle(self.currentCase.layout[keyPosition.row][updatedIndex], forState: .Normal)
+                    key.layoutIfNeeded()
+                })
             }, filter: {(key: UIButton) -> Bool in
                     return key.titleLabel?.text != nil
             })
@@ -72,6 +75,7 @@ class MHKeyboardViewController: UIInputViewController{
         }
     }
     var capsLock = false
+    var deletionTimer: NSTimer!
 
     override func viewDidLoad() -> Void{
         super.viewDidLoad()
@@ -176,13 +180,8 @@ class MHKeyboardViewController: UIInputViewController{
             textDocumentProxy.insertText("   ")
         }
         else if key == backspaceKey{
-            guard textDocumentProxy.documentContextBeforeInput?.characters.last != " " else{
-                repeat{
-                    textDocumentProxy.deleteBackward()
-                }while textDocumentProxy.documentContextBeforeInput?.characters.last == " "
-                return
-            }
-            textDocumentProxy.deleteBackward()
+            deleteLastCharacter()
+            deletionTimer = NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: #selector(deleteLastCharacter), userInfo: nil, repeats: true)
         }
         else if key == returnKey{
             textDocumentProxy.insertText("\n")
@@ -198,6 +197,10 @@ class MHKeyboardViewController: UIInputViewController{
         }
         if key != shiftKey && currentCase == .Capital && !capsLock{
             currentCase = .Lower
+            shiftKey.setImage(UIImage(named: "Shift-Lower")!, forState: .Normal)
+        }
+        if key == backspaceKey{
+            deletionTimer.invalidate()
         }
     }
 
@@ -211,6 +214,16 @@ class MHKeyboardViewController: UIInputViewController{
     @objc func switchToNextKeyboard() -> Void{
         invertGradient(key: nextKeyboardButton)
         advanceToNextInputMode()
+    }
+
+    @objc func deleteLastCharacter() -> Void{
+        guard textDocumentProxy.documentContextBeforeInput?.characters.last != " " else{
+            repeat{
+                textDocumentProxy.deleteBackward()
+            }while textDocumentProxy.documentContextBeforeInput?.characters.last == " "
+            return
+        }
+        textDocumentProxy.deleteBackward()
     }
 
     func invertGradient(key key: UIButton) -> Void{
