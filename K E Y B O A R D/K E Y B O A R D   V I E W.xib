@@ -404,10 +404,6 @@
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbH-46-4ge">
                             <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="62" id="FGM-qB-3sW"/>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="ujF-bj-jL7"/>
-                            </constraints>
                             <color key="tintColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" image="Delete">
                                 <color key="titleColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -450,10 +446,6 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQx-ww-FkH">
                             <color key="backgroundColor" red="0.98039215686274506" green="0.18823529411764706" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="62" id="nNx-7n-zQ2"/>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="zVE-11-cMM"/>
-                            </constraints>
                             <color key="tintColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" image="Shift-Caps">
                                 <color key="titleColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -517,9 +509,6 @@
                             <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                             <color key="tintColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" image="Return"/>
-                            <variation key="widthClass=compact" misplaced="YES">
-                                <rect key="frame" x="275" y="1" width="44" height="42"/>
-                            </variation>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5P-rT-X1s">
                             <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -80,18 +80,16 @@ class MHKeyboardViewController: UIInputViewController{
     }
 
     func eachKey(closure: (key: UIButton) -> Void) -> Void{
-        for sub in view.subviews{
-            guard let button = sub as? UIButton else{
-                for button in sub.subviews{
-                    guard let button = button as? UIButton else{
-                        continue
-                    }
-                    closure(key: button)
+        func iterateKeys(row row: UIView) -> Void{
+            guard let button = row as? UIButton else{
+                for sub in row.subviews{
+                    iterateKeys(row: sub)
                 }
-                continue
+                return
             }
             closure(key: button)
         }
+        iterateKeys(row: view)
     }
 
     @objc func pressed(key: UIButton) -> Void{
