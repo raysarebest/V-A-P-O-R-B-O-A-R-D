@@ -11,6 +11,7 @@
                 <outlet property="alternateLayoutKey" destination="M5P-rT-X1s" id="94x-E8-pgC"/>
                 <outlet property="backspaceKey" destination="cbH-46-4ge" id="ppj-P2-gMD"/>
                 <outlet property="nextKeyboardButton" destination="hg4-xG-2kW" id="Ukj-FG-eve"/>
+                <outlet property="returnKey" destination="3eF-K0-3e1" id="0C4-EY-KX5"/>
                 <outlet property="shiftKey" destination="iQx-ww-FkH" id="kdO-fN-K6q"/>
                 <outletCollection property="specialKeys" destination="cbH-46-4ge" collectionClass="NSMutableArray" id="ceE-FQ-QIP"/>
                 <outletCollection property="specialKeys" destination="3eF-K0-3e1" collectionClass="NSMutableArray" id="M3D-ok-pEd"/>
@@ -402,13 +403,6 @@
                                 <color key="titleColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
-                        <button opaque="NO" tag="38" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbH-46-4ge">
-                            <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="tintColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" image="Delete">
-                                <color key="titleColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                        </button>
                         <button opaque="NO" tag="32" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hy-xS-FTj">
                             <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -448,6 +442,13 @@
                             <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
                             <state key="normal" title="Ｂ">
+                                <color key="titleColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" tag="38" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbH-46-4ge">
+                            <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" image="Delete">
                                 <color key="titleColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
@@ -513,7 +514,7 @@
                         </button>
                         <button opaque="NO" tag="41" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hg4-xG-2kW">
                             <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="tintColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" image="Globe">
                                 <color key="titleColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -547,6 +548,7 @@
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.17254901960784313" green="0.99607843137254903" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" red="0.019607843140000001" green="0.054901960780000002" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="jFu-uM-Xc3" secondAttribute="bottom" id="867-XP-9AF"/>
                 <constraint firstAttribute="trailing" secondItem="JXJ-je-nrM" secondAttribute="trailing" id="DYk-Iw-XBg"/>
@@ -557,7 +559,6 @@
                 <constraint firstItem="JXJ-je-nrM" firstAttribute="top" secondItem="Vti-6R-W4R" secondAttribute="bottom" id="MGl-k2-4P0"/>
                 <constraint firstItem="MxY-yv-Eky" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Pon-Oa-BRR"/>
                 <constraint firstItem="jFu-uM-Xc3" firstAttribute="top" secondItem="JXJ-je-nrM" secondAttribute="bottom" id="Ret-nL-jo2"/>
-                <constraint firstItem="MxY-yv-Eky" firstAttribute="width" secondItem="fha-Ed-u1k" secondAttribute="width" id="TdC-0T-dOl"/>
                 <constraint firstItem="Vti-6R-W4R" firstAttribute="height" secondItem="JXJ-je-nrM" secondAttribute="height" id="U2W-C2-5em"/>
                 <constraint firstAttribute="trailing" secondItem="MxY-yv-Eky" secondAttribute="trailing" id="WrZ-79-keJ"/>
                 <constraint firstItem="JXJ-je-nrM" firstAttribute="top" secondItem="Vti-6R-W4R" secondAttribute="bottom" id="al1-va-KqU"/>
@@ -586,6 +587,6 @@
         <image name="Delete" width="380" height="276"/>
         <image name="Globe" width="460" height="460"/>
         <image name="Return" width="254" height="343"/>
-        <image name="Shift-Caps" width="399" height="335"/>
+        <image name="Shift-Caps" width="399" height="329"/>
     </resources>
 </document>
