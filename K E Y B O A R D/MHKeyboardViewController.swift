@@ -155,10 +155,11 @@ class MHKeyboardViewController: UIInputViewController{
         return (row: key.tag / 10, index: key.tag % 10)
     }
 
+    //FIXME: This function is called on a double-tap of the shift key on an actual device, but it isn't called at all on the simulator. As it stands, the gradient inversion is undone on an actual device, but not in the simulator
     @objc func pressed(key: UIButton) -> Void{
-        if !(capsLock && key == shiftKey){
+        //if !(capsLock && key == shiftKey){
             invertGradient(key: key)
-        }
+        //}
         if key == shiftKey && !capsLock && currentCase != .Punctuation{
             currentCase = currentCase == .Capital ? .Lower : .Capital
             if currentCase == .Capital{
@@ -192,9 +193,9 @@ class MHKeyboardViewController: UIInputViewController{
     }
 
     @objc func cleanUpPress(key: UIButton) -> Void{
-        if !(key == shiftKey && capsLock){
+        //if !(/* key == shiftKey && */capsLock){
             invertGradient(key: key)
-        }
+        //}
         if key != shiftKey && currentCase == .Capital && !capsLock{
             currentCase = .Lower
             shiftKey.setImage(UIImage(named: "Shift-Lower")!, forState: .Normal)
@@ -205,7 +206,7 @@ class MHKeyboardViewController: UIInputViewController{
     }
 
     @objc func lockCaps() -> Void{
-        invertGradient(key: shiftKey)
+        //invertGradient(key: shiftKey)
         shiftKey.setImage(UIImage(named: "Shift-Caps-Lock")!, forState: .Normal)
         currentCase = .Capital
         capsLock = true
@@ -217,10 +218,16 @@ class MHKeyboardViewController: UIInputViewController{
     }
 
     @objc func deleteLastCharacter() -> Void{
-        guard textDocumentProxy.documentContextBeforeInput?.characters.last != " " else{
+        func isSpace() -> Bool{
+            guard let exists = textDocumentProxy.documentContextBeforeInput?.characters.last else{
+                return false
+            }
+            return exists == Character(" ") || exists == Character(" ")
+        }
+        guard !isSpace() else{
             repeat{
                 textDocumentProxy.deleteBackward()
-            }while textDocumentProxy.documentContextBeforeInput?.characters.last == " "
+            }while isSpace()
             return
         }
         textDocumentProxy.deleteBackward()
@@ -230,6 +237,8 @@ class MHKeyboardViewController: UIInputViewController{
         guard let gradient = key.layer.sublayers?[0] as? CAGradientLayer else{
             return
         }
+        CATransaction.begin()
+        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
         if gradient.colors!.count % 2 == 0{
             gradient.colors = gradient.colors?.reverse()
         }
@@ -241,6 +250,7 @@ class MHKeyboardViewController: UIInputViewController{
             new.append(gradient.colors![gradient.colors!.count - 2])
             gradient.colors = new
         }
+        CATransaction.commit()
     }
 }
 

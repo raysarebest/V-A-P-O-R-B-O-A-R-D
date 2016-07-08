@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="16A201w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" generatesPrototypingConstraints="YES" useTraitCollections="YES" colorMatched="NO" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="16A239j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M9y-aQ-wkB">
     <dependencies>
         <deployment identifier="iOS"/>
-        <development version="7000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Ｉｎｓｔａｌｌ-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MHViewController" customModule="V_A_P_O_R_B_O_A_R_D" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MHInstallViewController" customModule="V_A_P_O_R_B_O_A_R_D" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,25 +18,104 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="y3H-j5-9ZS">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sb-k1-8e5">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="szW-ik-oLd"/>
+                                </constraints>
+                                <state key="normal" title="Ｔｒｙ    ｉｔ    ｏｕｔ">
+                                    <color key="titleColor" red="0.17254901959999999" green="0.99607843139999996" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="MOK-Vi-xVv" kind="show" id="DMD-tY-Dpe"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ioe-hW-ifG">
+                                <string key="text">1. Open the Settings app
+2. Select “General”
+3. Select “Keyboard”
+4. Select “Keyboards”
+5. Select “Add new Keyboard…”
+6. Select “V A P O R B O A R D”
+7. Ｅｎｊｏｙ    ｔｈｅ    ａｅｓｔｈｅｔｉｃ</string>
+                                <color key="textColor" red="0.17254901959999999" green="0.99607843139999996" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="y3H-j5-9ZS" secondAttribute="trailing" id="1hL-cW-jXc"/>
-                            <constraint firstItem="y3H-j5-9ZS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3V5-jp-NJR"/>
-                            <constraint firstItem="y3H-j5-9ZS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ahc-WP-zD1"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="y3H-j5-9ZS" secondAttribute="bottom" id="TAv-TA-y6C"/>
+                            <constraint firstItem="8sb-k1-8e5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="45T-0K-ulK"/>
+                            <constraint firstItem="8sb-k1-8e5" firstAttribute="top" secondItem="Ioe-hW-ifG" secondAttribute="bottom" constant="8" id="DYd-XV-LJL"/>
+                            <constraint firstItem="Ioe-hW-ifG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Njy-Ik-puw"/>
+                            <constraint firstItem="Ioe-hW-ifG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="SLv-pZ-3Zx"/>
+                            <constraint firstAttribute="trailing" secondItem="Ioe-hW-ifG" secondAttribute="trailing" id="b6l-40-TJn"/>
+                            <constraint firstAttribute="trailing" secondItem="8sb-k1-8e5" secondAttribute="trailing" constant="16" id="lvg-Jw-rLP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8sb-k1-8e5" secondAttribute="bottom" constant="20" id="vtP-ds-E9j"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Ｉｎｓｔａｌｌ" id="sLc-sr-TcJ"/>
+                    <connections>
+                        <outlet property="instructionsView" destination="Ioe-hW-ifG" id="pyX-ZA-Hup"/>
+                        <outlet property="tryButton" destination="8sb-k1-8e5" id="9jw-m6-KjY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="103.2" y="216.34182908545728"/>
+        </scene>
+        <!--Ｔｒｙ-->
+        <scene sceneID="EA6-y9-0kV">
+            <objects>
+                <viewController title="Ｔｒｙ" id="MOK-Vi-xVv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Oy-i3-jht"/>
+                        <viewControllerLayoutGuide type="bottom" id="UWc-l8-U2s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dE9-Hg-egd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RHx-TN-7oU" customClass="IQTextView" customModule="V_A_P_O_R_B_O_A_R_D" customModuleProvider="target">
+                                <mutableString key="text">Ｌｏｒｅｍ   ｉｐｓｕｍ   ｄｏｌｏｒ   ｓｉｔ   ａｍｅｔ，   ｃｏｎｓｅｃｔｅｔｕｒ   ａｄｉｐｉｓｃｉｎｇ   ｅｌｉｔ．   Ｍａｅｃｅｎａｓ   ｆａｕｃｉｂｕｓ   ｍａｇｎａ   ｅｕ   ｅｘ   ｆａｃｉｌｉｓｉｓ，   ａｃ   ｆａｕｃｉｂｕｓ   ｏｒｃｉ   ｄｉｃｔｕｍ．   Ｄｏｎｅｃ   ｖｕｌｐｕｔａｔｅ   ｅｒａｔ   ａ   ｌａｏｒｅｅｔ   ｃｕｒｓｕｓ．   Ｃｒａｓ   ｌｕｃｔｕｓ   ｆａｃｉｌｉｓｉｓ   ｒｈｏｎｃｕｓ．   Ｍａｕｒｉｓ   ａｔ   ｆｉｎｉｂｕｓ   ｄｕｉ，   ｅｔ   ｐｏｒｔａ   ａｕｇｕｅ．   Ａｅｎｅａｎ   ｅｌｅｉｆｅｎｄ   ｆｅｌｉｓ   ｖｏｌｕｔｐａｔ，   ｒｕｔｒｕｍ   ｅｘ   ａｔ，   ｐｏｒｔｔｉｔｏｒ   ｏｄｉｏ．   Ｎａｍ   ａｒｃｕ   ｎｅｑｕｅ，   ｇｒａｖｉｄａ   ａ   ｄｕｉ   ｎｅｃ，   ｉａｃｕｌｉｓ   ｓｕｓｃｉｐｉｔ   ｔｏｒｔｏｒ．   Ｎｕｌｌａｍ   ｅｌｅｉｆｅｎｄ   ｎｉｂｈ   ｑｕｉｓ   ｌｏｒｅｍ   ｕｌｔｒｉｃｉｅｓ，   ｅｔ   ｓｏｌｌｉｃｉｔｕｄｉｎ   ｔｏｒｔｏｒ   ｉｎｔｅｒｄｕｍ．   Ｎｕｌｌａｍ   ｆｒｉｎｇｉｌｌａ   ｕｌｔｒｉｃｅｓ   ｇｒａｖｉｄａ．   Ｖｅｓｔｉｂｕｌｕｍ   ｓｉｔ   ａｍｅｔ   ｅｒｏｓ   ｓｉｔ   ａｍｅｔ   ｌｅｃｔｕｓ   ｔｉｎｃｉｄｕｎｔ   ｍａｔｔｉｓ．</mutableString>
+                                <color key="textColor" red="0.17254901959999999" green="0.99607843139999996" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.17254901959999999" green="0.99607843139999996" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RHx-TN-7oU" firstAttribute="leading" secondItem="dE9-Hg-egd" secondAttribute="leading" id="ZZv-U3-VmT"/>
+                            <constraint firstItem="RHx-TN-7oU" firstAttribute="top" secondItem="dE9-Hg-egd" secondAttribute="top" id="e91-p2-HU3"/>
+                            <constraint firstItem="UWc-l8-U2s" firstAttribute="top" secondItem="RHx-TN-7oU" secondAttribute="bottom" id="lNP-cN-zwZ"/>
+                            <constraint firstAttribute="trailing" secondItem="RHx-TN-7oU" secondAttribute="trailing" id="zMo-Pa-53W"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wih-EX-gfq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="215.44227886056973"/>
+        </scene>
+        <!--Musical Navigation Controller-->
+        <scene sceneID="Nfe-OQ-Wo0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M9y-aQ-wkB" customClass="MHMusicalNavigationController" customModule="V_A_P_O_R_B_O_A_R_D" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Xiw-fC-htc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="es7-Vz-BPc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VE0-Rp-jNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="104.8" y="-557.27136431784118"/>
         </scene>
     </scenes>
 </document>

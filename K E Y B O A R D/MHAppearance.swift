@@ -78,6 +78,8 @@ func verticalGradient(rect: CGRect, colors: [UIColor]) -> CAGradientLayer{
     })
     return gradient
 }
+typealias MHLineSpacing = CGFloat
+let defaultLineSpacing: MHLineSpacing = 10
 
 extension UIView{
     func setBackground(gradient g: CAGradientLayer) -> Void{
