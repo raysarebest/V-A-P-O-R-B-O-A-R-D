@@ -38,11 +38,12 @@
                         <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="81S-3C-KaN" secondAttribute="trailing" id="3DD-nn-B9K"/>
+                            <constraint firstItem="L21-zZ-gKe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="50" id="7fQ-YV-Bzo"/>
                             <constraint firstItem="L21-zZ-gKe" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="H6t-9B-aG1"/>
                             <constraint firstItem="81S-3C-KaN" firstAttribute="top" secondItem="L21-zZ-gKe" secondAttribute="bottom" constant="8" id="K0s-ik-lYj"/>
                             <constraint firstItem="81S-3C-KaN" firstAttribute="centerX" secondItem="L21-zZ-gKe" secondAttribute="centerX" id="W7O-IU-5qn"/>
                             <constraint firstItem="L21-zZ-gKe" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="eLP-ro-iaj"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="81S-3C-KaN" secondAttribute="bottom" constant="150" id="jlz-Yf-PvA"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" relation="greaterThanOrEqual" secondItem="81S-3C-KaN" secondAttribute="bottom" constant="150" id="jlz-Yf-PvA"/>
                             <constraint firstItem="81S-3C-KaN" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="vBS-bB-nCt"/>
                         </constraints>
                     </view>
