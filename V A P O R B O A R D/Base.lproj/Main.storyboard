@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="16A239j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M9y-aQ-wkB">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" generatesPrototypingConstraints="YES" useTraitCollections="YES" colorMatched="NO" initialViewController="M9y-aQ-wkB">
     <dependencies>
         <deployment identifier="iOS"/>
+        <development version="7000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Ｉｎｓｔａｌｌ-->
@@ -15,21 +15,23 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sb-k1-8e5">
+                                <rect key="frame" x="16" y="530" width="568" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="szW-ik-oLd"/>
                                 </constraints>
                                 <state key="normal" title="Ｔｒｙ    ｉｔ    ｏｕｔ">
-                                    <color key="titleColor" red="0.17254901959999999" green="0.99607843139999996" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.17254901959999999" green="0.99607843139999996" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="MOK-Vi-xVv" kind="show" id="DMD-tY-Dpe"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ioe-hW-ifG">
+                                <rect key="frame" x="0.0" y="72" width="600" height="450"/>
                                 <string key="text">1. Open the Settings app
 2. Select “General”
 3. Select “Keyboard”
@@ -37,13 +39,13 @@
 5. Select “Add new Keyboard…”
 6. Select “V A P O R B O A R D”
 7. Ｅｎｊｏｙ    ｔｈｅ    ａｅｓｔｈｅｔｉｃ</string>
-                                <color key="textColor" red="0.17254901959999999" green="0.99607843139999996" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.17254901959999999" green="0.99607843139999996" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8sb-k1-8e5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="45T-0K-ulK"/>
                             <constraint firstItem="8sb-k1-8e5" firstAttribute="top" secondItem="Ioe-hW-ifG" secondAttribute="bottom" constant="8" id="DYd-XV-LJL"/>
@@ -73,18 +75,19 @@
                         <viewControllerLayoutGuide type="bottom" id="UWc-l8-U2s"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dE9-Hg-egd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RHx-TN-7oU" customClass="IQTextView" customModule="V_A_P_O_R_B_O_A_R_D" customModuleProvider="target">
-                                <mutableString key="text">Ｌｏｒｅｍ   ｉｐｓｕｍ   ｄｏｌｏｒ   ｓｉｔ   ａｍｅｔ，   ｃｏｎｓｅｃｔｅｔｕｒ   ａｄｉｐｉｓｃｉｎｇ   ｅｌｉｔ．   Ｍａｅｃｅｎａｓ   ｆａｕｃｉｂｕｓ   ｍａｇｎａ   ｅｕ   ｅｘ   ｆａｃｉｌｉｓｉｓ，   ａｃ   ｆａｕｃｉｂｕｓ   ｏｒｃｉ   ｄｉｃｔｕｍ．   Ｄｏｎｅｃ   ｖｕｌｐｕｔａｔｅ   ｅｒａｔ   ａ   ｌａｏｒｅｅｔ   ｃｕｒｓｕｓ．   Ｃｒａｓ   ｌｕｃｔｕｓ   ｆａｃｉｌｉｓｉｓ   ｒｈｏｎｃｕｓ．   Ｍａｕｒｉｓ   ａｔ   ｆｉｎｉｂｕｓ   ｄｕｉ，   ｅｔ   ｐｏｒｔａ   ａｕｇｕｅ．   Ａｅｎｅａｎ   ｅｌｅｉｆｅｎｄ   ｆｅｌｉｓ   ｖｏｌｕｔｐａｔ，   ｒｕｔｒｕｍ   ｅｘ   ａｔ，   ｐｏｒｔｔｉｔｏｒ   ｏｄｉｏ．   Ｎａｍ   ａｒｃｕ   ｎｅｑｕｅ，   ｇｒａｖｉｄａ   ａ   ｄｕｉ   ｎｅｃ，   ｉａｃｕｌｉｓ   ｓｕｓｃｉｐｉｔ   ｔｏｒｔｏｒ．   Ｎｕｌｌａｍ   ｅｌｅｉｆｅｎｄ   ｎｉｂｈ   ｑｕｉｓ   ｌｏｒｅｍ   ｕｌｔｒｉｃｉｅｓ，   ｅｔ   ｓｏｌｌｉｃｉｔｕｄｉｎ   ｔｏｒｔｏｒ   ｉｎｔｅｒｄｕｍ．   Ｎｕｌｌａｍ   ｆｒｉｎｇｉｌｌａ   ｕｌｔｒｉｃｅｓ   ｇｒａｖｉｄａ．   Ｖｅｓｔｉｂｕｌｕｍ   ｓｉｔ   ａｍｅｔ   ｅｒｏｓ   ｓｉｔ   ａｍｅｔ   ｌｅｃｔｕｓ   ｔｉｎｃｉｄｕｎｔ   ｍａｔｔｉｓ．</mutableString>
-                                <color key="textColor" red="0.17254901959999999" green="0.99607843139999996" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <string key="text">Ｌｏｒｅｍ   ｉｐｓｕｍ   ｄｏｌｏｒ   ｓｉｔ   ａｍｅｔ，   ｃｏｎｓｅｃｔｅｔｕｒ   ａｄｉｐｉｓｃｉｎｇ   ｅｌｉｔ．   Ｍａｅｃｅｎａｓ   ｆａｕｃｉｂｕｓ   ｍａｇｎａ   ｅｕ   ｅｘ   ｆａｃｉｌｉｓｉｓ，   ａｃ   ｆａｕｃｉｂｕｓ   ｏｒｃｉ   ｄｉｃｔｕｍ．   Ｄｏｎｅｃ   ｖｕｌｐｕｔａｔｅ   ｅｒａｔ   ａ   ｌａｏｒｅｅｔ   ｃｕｒｓｕｓ．   Ｃｒａｓ   ｌｕｃｔｕｓ   ｆａｃｉｌｉｓｉｓ   ｒｈｏｎｃｕｓ．   Ｍａｕｒｉｓ   ａｔ   ｆｉｎｉｂｕｓ   ｄｕｉ，   ｅｔ   ｐｏｒｔａ   ａｕｇｕｅ．   Ａｅｎｅａｎ   ｅｌｅｉｆｅｎｄ   ｆｅｌｉｓ   ｖｏｌｕｔｐａｔ，   ｒｕｔｒｕｍ   ｅｘ   ａｔ，   ｐｏｒｔｔｉｔｏｒ   ｏｄｉｏ．   Ｎａｍ   ａｒｃｕ   ｎｅｑｕｅ，   ｇｒａｖｉｄａ   ａ   ｄｕｉ   ｎｅｃ，   ｉａｃｕｌｉｓ   ｓｕｓｃｉｐｉｔ   ｔｏｒｔｏｒ．   Ｎｕｌｌａｍ   ｅｌｅｉｆｅｎｄ   ｎｉｂｈ   ｑｕｉｓ   ｌｏｒｅｍ   ｕｌｔｒｉｃｉｅｓ，   ｅｔ   ｓｏｌｌｉｃｉｔｕｄｉｎ   ｔｏｒｔｏｒ   ｉｎｔｅｒｄｕｍ．   Ｎｕｌｌａｍ   ｆｒｉｎｇｉｌｌａ   ｕｌｔｒｉｃｅｓ   ｇｒａｖｉｄａ．   Ｖｅｓｔｉｂｕｌｕｍ   ｓｉｔ   ａｍｅｔ   ｅｒｏｓ   ｓｉｔ   ａｍｅｔ   ｌｅｃｔｕｓ   ｔｉｎｃｉｄｕｎｔ   ｍａｔｔｉｓ．</string>
+                                <color key="textColor" red="0.17254901959999999" green="0.99607843139999996" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.17254901959999999" green="0.99607843139999996" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.18823529410000001" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.17254901959999999" green="0.99607843139999996" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="RHx-TN-7oU" firstAttribute="leading" secondItem="dE9-Hg-egd" secondAttribute="leading" id="ZZv-U3-VmT"/>
                             <constraint firstItem="RHx-TN-7oU" firstAttribute="top" secondItem="dE9-Hg-egd" secondAttribute="top" id="e91-p2-HU3"/>

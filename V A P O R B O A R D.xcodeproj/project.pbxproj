@@ -37,8 +37,6 @@
 		4C307C5D1D2F94AC0061844E /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C307C4B1D2F94AC0061844E /* IQUIView+IQKeyboardToolbar.swift */; };
 		4C307C5E1D2F94AC0061844E /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C307C4D1D2F94AC0061844E /* IQKeyboardManager.bundle */; };
 		4C5CC5101D1BAE9F00DE5816 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C0493CF1D0BB60F0007BD2C /* Assets.xcassets */; };
-		4CEC697D1D2091920023F9A5 /* M U S I C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC697C1D2091920023F9A5 /* M U S I C.mp3 */; };
-		4CEC69801D2091D40023F9A5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC697F1D2091D40023F9A5 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +114,6 @@
 		4C307C4A1D2F94AC0061844E /* IQToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQToolbar.swift; sourceTree = "<group>"; };
 		4C307C4B1D2F94AC0061844E /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
 		4C307C4D1D2F94AC0061844E /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
-		4CEC697C1D2091920023F9A5 /* M U S I C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M U S I C.mp3"; sourceTree = "<group>"; };
 		4CEC697F1D2091D40023F9A5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -125,7 +122,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CEC69801D2091D40023F9A5 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +181,6 @@
 				4C0493CF1D0BB60F0007BD2C /* Assets.xcassets */,
 				4C0493D11D0BB60F0007BD2C /* LaunchScreen.storyboard */,
 				4C0493D41D0BB60F0007BD2C /* Info.plist */,
-				4CEC697C1D2091920023F9A5 /* M U S I C.mp3 */,
 				4C307C361D2F94AC0061844E /* IQKeyboardManager */,
 			);
 			path = "V A P O R B O A R D";
@@ -427,7 +422,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C307C5E1D2F94AC0061844E /* IQKeyboardManager.bundle in Resources */,
-				4CEC697D1D2091920023F9A5 /* M U S I C.mp3 in Resources */,
 				4C0493D31D0BB60F0007BD2C /* LaunchScreen.storyboard in Resources */,
 				4C0493D01D0BB60F0007BD2C /* Assets.xcassets in Resources */,
 				4C0493CE1D0BB60F0007BD2C /* Main.storyboard in Resources */,
@@ -640,11 +634,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "V A P O R B O A R D/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "tech.hulet.V-A-P-O-R-B-O-A-R-D";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.hulet.michael.V-A-P-O-R-B-O-A-R-D";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -656,11 +652,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "V A P O R B O A R D/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "tech.hulet.V-A-P-O-R-B-O-A-R-D";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.hulet.michael.V-A-P-O-R-B-O-A-R-D";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -722,7 +720,7 @@
 				INFOPLIST_FILE = "K E Y B O A R D/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "tech.hulet.V-A-P-O-R-B-O-A-R-D.K-E-Y-B-O-A-R-D";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.hulet.michael.V-A-P-O-R-B-O-A-R-D.K-E-Y-B-O-A-R-D";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 2.3;
@@ -736,7 +734,7 @@
 				INFOPLIST_FILE = "K E Y B O A R D/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "tech.hulet.V-A-P-O-R-B-O-A-R-D.K-E-Y-B-O-A-R-D";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.hulet.michael.V-A-P-O-R-B-O-A-R-D.K-E-Y-B-O-A-R-D";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

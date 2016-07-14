@@ -12,18 +12,18 @@ import AVFoundation
 @UIApplicationMain
 class ＭＨＡｐｐＤｅｌｅｇａｔｅ: UIResponder, UIApplicationDelegate{
     var window: UIWindow?
-    private let ｍｕｓｉｃ: AVAudioPlayer = {
-        let ｐｌａｙｅｒ = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("M U S I C", ofType: "mp3")!))
-        ｐｌａｙｅｒ.numberOfLoops = -1
-        ｐｌａｙｅｒ.prepareToPlay()
-        return ｐｌａｙｅｒ
-    }()
-
-    func ｐｌａｙＭｕｓｉｃ() -> Void{
-        if !ｍｕｓｉｃ.playing{
-            ｍｕｓｉｃ.play()
-        }
-    }
+//    private let ｍｕｓｉｃ: AVAudioPlayer = {
+//        let ｐｌａｙｅｒ = try! AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("M U S I C", ofType: "mp3")!))
+//        ｐｌａｙｅｒ.numberOfLoops = -1
+//        ｐｌａｙｅｒ.prepareToPlay()
+//        return ｐｌａｙｅｒ
+//    }()
+//
+//    func ｐｌａｙＭｕｓｉｃ() -> Void{
+//        if !ｍｕｓｉｃ.playing{
+//            ｍｕｓｉｃ.play()
+//        }
+//    }
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool{
         // Override point for customization after application launch.
         UINavigationBar.appearance().tintColor = UIColor(r: 250, g: 48, b: 129)
@@ -35,7 +35,6 @@ class ＭＨＡｐｐＤｅｌｅｇａｔｅ: UIResponder, UIApplicationDelegat
     func applicationWillResignActive(application: UIApplication) -> Void{
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-        //ｍｕｓｉｃ.pause()
     }
 
     func applicationDidEnterBackground(application: UIApplication) -> Void{
@@ -45,7 +44,6 @@ class ＭＨＡｐｐＤｅｌｅｇａｔｅ: UIResponder, UIApplicationDelegat
 
     func applicationWillEnterForeground(application: UIApplication) -> Void{
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        //ｐｌａｙＭｕｓｉｃ()
     }
 
     func applicationDidBecomeActive(application: UIApplication) -> Void{
@@ -58,11 +56,6 @@ class ＭＨＡｐｐＤｅｌｅｇａｔｅ: UIResponder, UIApplicationDelegat
 }
 
 class MHMusicalNavigationController: UINavigationController{
-    override func viewWillAppear(animated: Bool) -> Void{
-        super.viewWillAppear(animated)
-        (UIApplication.sharedApplication().delegate! as! ＭＨＡｐｐＤｅｌｅｇａｔｅ).ｐｌａｙＭｕｓｉｃ()
-    }
-
     override func preferredStatusBarStyle() -> UIStatusBarStyle{
         return .LightContent
     }
