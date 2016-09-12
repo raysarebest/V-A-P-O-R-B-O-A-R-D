@@ -36,7 +36,9 @@
 		4C307C5C1D2F94AC0061844E /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C307C4A1D2F94AC0061844E /* IQToolbar.swift */; };
 		4C307C5D1D2F94AC0061844E /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C307C4B1D2F94AC0061844E /* IQUIView+IQKeyboardToolbar.swift */; };
 		4C307C5E1D2F94AC0061844E /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C307C4D1D2F94AC0061844E /* IQKeyboardManager.bundle */; };
+		4C468F831D4E9ECC00EC34F3 /* MHKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C468F821D4E9ECC00EC34F3 /* MHKey.swift */; };
 		4C5CC5101D1BAE9F00DE5816 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C0493CF1D0BB60F0007BD2C /* Assets.xcassets */; };
+		4CAED5CB1D56C56A002115FE /* MHKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAED5CA1D56C56A002115FE /* MHKeyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		4C307C4A1D2F94AC0061844E /* IQToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQToolbar.swift; sourceTree = "<group>"; };
 		4C307C4B1D2F94AC0061844E /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
 		4C307C4D1D2F94AC0061844E /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		4C468F821D4E9ECC00EC34F3 /* MHKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHKey.swift; sourceTree = "<group>"; };
+		4CAED5CA1D56C56A002115FE /* MHKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHKeyboard.swift; sourceTree = "<group>"; };
 		4CEC697F1D2091D40023F9A5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -208,6 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				4C0493FC1D0BB6A60007BD2C /* MHKeyboardViewController.swift */,
+				4C468F821D4E9ECC00EC34F3 /* MHKey.swift */,
+				4CAED5CA1D56C56A002115FE /* MHKeyboard.swift */,
 				4C28AF451D19311800ED03F4 /* MHAppearance.swift */,
 				4C04940C1D0BC6C30007BD2C /* K E Y B O A R D   V I E W.xib */,
 				4C0493FE1D0BB6A60007BD2C /* Info.plist */,
@@ -500,6 +506,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C468F831D4E9ECC00EC34F3 /* MHKey.swift in Sources */,
+				4CAED5CB1D56C56A002115FE /* MHKeyboard.swift in Sources */,
 				4C28AF471D19311900ED03F4 /* MHAppearance.swift in Sources */,
 				4C0493FD1D0BB6A60007BD2C /* MHKeyboardViewController.swift in Sources */,
 			);
@@ -724,6 +732,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 2.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -739,6 +748,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 2.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

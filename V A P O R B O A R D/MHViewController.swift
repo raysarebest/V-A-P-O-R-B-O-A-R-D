@@ -22,7 +22,6 @@ class MHInstallViewController: UIViewController, NSLayoutManagerDelegate{
         tryButton.layer.borderColor = UIColor(r: 44, g: 254, b: 236).CGColor
         tryButton.layer.borderWidth = 1
         tryButton.layer.cornerRadius = 10
-        //tryButton.addTarget(self, action: #selector(centerInstructions), forControlEvents: .TouchUpInside)
     }
 
     override func viewWillAppear(animated: Bool) -> Void{

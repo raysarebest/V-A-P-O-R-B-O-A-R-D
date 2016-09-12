@@ -48,6 +48,7 @@ class MHKeyboardViewController: UIInputViewController{
     @IBOutlet weak var shiftKey: UIButton!
     @IBOutlet weak var alternateLayoutKey: UIButton!
     @IBOutlet weak var returnKey: UIButton!
+    @IBOutlet weak var keyHeight: NSLayoutConstraint!
     var currentCase: MHKeyCase = .Capital{
         didSet{
             eachKey({(key: UIButton) in
@@ -85,6 +86,10 @@ class MHKeyboardViewController: UIInputViewController{
         capsLockTrigger.numberOfTapsRequired = 2
         capsLockTrigger.addTarget(self, action: #selector(lockCaps))
         shiftKey.addGestureRecognizer(capsLockTrigger)
+        if UIDevice.currentDevice().model.containsString("iPad"){
+            keyHeight.constant = 84
+            view.setNeedsLayout()
+        }
     }
 
     override func viewWillAppear(animated: Bool) -> Void{
@@ -115,8 +120,11 @@ class MHKeyboardViewController: UIInputViewController{
         }
         greenGradient.frame = view.frame
         view.setBackground(gradient: greenGradient)
+        func gradientFor(key: UIButton) -> CAGradientLayer?{
+            return key.layer.sublayers![0] as? CAGradientLayer
+        }
         eachKey({(key: UIButton) in
-            guard let pinkGradient = key.layer.sublayers![0] as? CAGradientLayer else{
+            guard let pinkGradient = gradientFor(key) else{
                 return
             }
             //Wow this is a weird hack thanks Apple Engineering for not keeping UIView.frame or UIView.bounds updated during size changes, or even equal at any time
@@ -258,6 +266,21 @@ extension String{
     var length: Int{
         get{
             return characters.count
+        }
+    }
+}
+
+extension UIUserInterfaceSizeClass{
+    var stringValue: String{
+        get{
+            switch self{
+                case .Compact:
+                    return "Compact"
+                case .Regular:
+                    return "Regular"
+                case .Unspecified:
+                    return "Unspecified"
+            }
         }
     }
 }
