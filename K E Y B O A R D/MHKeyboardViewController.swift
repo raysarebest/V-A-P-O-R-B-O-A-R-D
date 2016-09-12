@@ -86,16 +86,15 @@ class MHKeyboardViewController: UIInputViewController{
         capsLockTrigger.numberOfTapsRequired = 2
         capsLockTrigger.addTarget(self, action: #selector(lockCaps))
         shiftKey.addGestureRecognizer(capsLockTrigger)
-        if UIDevice.currentDevice().model.containsString("iPad"){
-            keyHeight.constant = 84
-            view.setNeedsLayout()
-        }
     }
 
     override func viewWillAppear(animated: Bool) -> Void{
         super.viewWillAppear(animated)
         let darkGreen = UIColor(r: 90, g: 183, b: 160)
         view.setBackground(gradient: verticalGradient(view.frame, colors: [darkGreen, view.backgroundColor!, darkGreen]))
+        if UIDevice.currentDevice().model.containsString("iPad"){
+            keyHeight.constant = 86
+        }
         eachKey({(key: UIButton) in
             key.layer.cornerRadius = 10
             if key != self.nextKeyboardButton{
